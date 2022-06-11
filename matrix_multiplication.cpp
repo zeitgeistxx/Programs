@@ -12,8 +12,6 @@ int main(){
     cin >> p >> q;
     int b[p][q];
     
-    
-
     //in order to multiply two matrices coloumn no. of first matrix must be same with row no. of second matrix
     int result[m][q];
 
@@ -57,8 +55,5 @@ int main(){
         }
 
     }
-
-    
-
 
 }
