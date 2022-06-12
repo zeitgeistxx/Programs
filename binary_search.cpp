@@ -18,6 +18,7 @@ int binarySerach(int arr[], int n, int key) {
             s = mid + 1;
         }
     }
+    return -1;
 }
 
 int main(){
@@ -36,3 +37,4 @@ int main(){
     cout << binarySerach(a, n, key);
    
 }
+
