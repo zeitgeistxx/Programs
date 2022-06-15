@@ -10,20 +10,28 @@ int factorial(int n){
         return n * factorial(n-1);
 }
 
-int main(){
-    int n,strong=0;
-    cout << "Enter a number to check whether it is a strong number or not: ";
-    cin>>n;
-    int original = n;
+int strongNumber(int n){
+    int strong=0;
+    int original=n;
     while(n!=0){
         int temp = n % 10;
         strong += factorial(temp);
         n/=10;
     }
     if(strong==original) {
-        cout<<"Strong number"<<endl;
+        cout<<original<<" is a Strong number"<<endl;
 
-    }else{
-        cout<<"Not Strong number"<<endl;
     }
+}
+
+int main(){
+    int x,y; //x=lower limit,y=upper limit
+    cout << "Enter the range: ";
+    cin>>x>>y;
+
+    //strong numbers within a range
+    for(int i=x; i<=y; i++){
+        strongNumber(i);
+    }
+    return 0;    
 }
