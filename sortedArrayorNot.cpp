@@ -18,8 +18,8 @@ int main(){
         cin >> a[i];
     }
 
-    int check = isArraySorted(a, n);
-    if(check==0){
+    
+    if(isArraySorted(a, n)==0){
         cout<<"Not Sorted!"<<endl;
     }
     else{
