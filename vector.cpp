@@ -15,12 +15,14 @@ int main()
     }
 
     vector<int> w;
-    // int min = *min_element(v.begin(),v.end()); 
+    // int min = *min_element(v.begin(),v.end());
     for (int i = 0; i < n; i++)
     {
         w.push_back(v[i]);
     }
     sort(v.begin(), v.end());
+
+    // loop through vector w and search for vector v elements , if they match delete that element from vector w
 
     int j = 0;
     for (int i = 0; i < w.size(); i++)

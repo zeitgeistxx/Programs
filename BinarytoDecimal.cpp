@@ -9,10 +9,10 @@ int BinarytoDecimal(string s){
     int sum = 0;
     for(int i=s.length()-1; i>=0; i--){
         if(s[s.length()-i-1]=='0'){
-            sum += 0 * pow(2, i);
+            sum += 0;
         }
         else{
-            sum += 1 * pow(2, i);
+            sum += pow(2, i);
         }
 
     }
@@ -26,3 +26,4 @@ int main(){
 
     cout << BinarytoDecimal(s) << endl;
 }
+
