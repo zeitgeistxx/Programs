@@ -11,7 +11,6 @@ void PascalTriangle(int n){
         }
         for (int k = 0; k <= i; k++){
             if(i==0||k==0){
-                bin = 1;
                 cout << bin;
             }
             else{
