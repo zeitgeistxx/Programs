@@ -1,11 +1,13 @@
 //Sparse matrix to Compact matrix
 #include<iostream>
 #include<iomanip>
-#define R 6
-#define C 8
+// #define R 6
+// #define C 8
 using namespace std;
 
 int main(){
+    int R, C;
+    cin >> R >> C;
     int sparse[R][C];
     for(int i = 0; i < R; i++){
         for(int j = 0; j < C; j++){
