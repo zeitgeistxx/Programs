@@ -6,7 +6,7 @@ char a[5000];
 
 void Binary(int n){
     if(n<1){
-        printf("%s \n", a);
+        cout << a << endl;
     }
 
     else{
