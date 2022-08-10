@@ -81,7 +81,7 @@ void Stack::display()
 
 int main()
 {
-    class Stack s;
+    Stack s;
     int item;
 
     while (true)
