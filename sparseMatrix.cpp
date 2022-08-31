@@ -21,8 +21,8 @@ int main(){
     for(int i = 0; i < R; i++){
         for(int j = 0; j < C; j++){
             if(sparse[i][j]!=0){
-                compact[k][0] = i;
-                compact[k][1] = j;
+                compact[k][0] = i+1;
+                compact[k][1] = j+1;
                 compact[k][2] = sparse[i][j];
                 k++;
             }
