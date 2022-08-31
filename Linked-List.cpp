@@ -189,8 +189,8 @@ int main()
             cout << "The List ->";
             l.display();
             break;
+            
         case 6:
-        
             cout << "Enter an element to Search ->";
             cin >> item;
             l.search(item);
