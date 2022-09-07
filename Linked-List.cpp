@@ -18,12 +18,12 @@ public:
         head = NULL;
     }
     int isEmpty();
-    void insertBeg(int item);
-    void insertEnd(int item);
+    void insertBeg(int);
+    void insertEnd(int);
     void deleteBeg();
     void deleteEnd();
     void display();
-    void search(int item);
+    void search(int);
     void reverse();
 };
 
@@ -53,10 +53,7 @@ void List::insertEnd(int item)
         return;
     }
     Node *temp = head;
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-    }
+    while (temp->next != NULL) temp = temp->next;
     temp->next = curr;
 }
 
@@ -85,10 +82,7 @@ void List::deleteEnd()
         head = NULL;
     }
     Node *temp = head;
-    while (temp->next->next != NULL)
-    {
-        temp = temp->next;
-    }
+    while (temp->next->next != NULL) temp = temp->next;
     delete temp->next;
     temp->next = NULL;
 }
@@ -166,13 +160,13 @@ int main()
         switch (choice)
         {
         case 1:
-            cout << "Enter a item ->";
+            cout << "Enter an item ->";
             cin >> item;
             l.insertBeg(item);
             break;
 
         case 2:
-            cout << "Enter a item ->";
+            cout << "Enter an item ->";
             cin >> item;
             l.insertEnd(item);
             break;
