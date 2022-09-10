@@ -33,6 +33,7 @@ int Poly::isEmpty()
 
 void Poly::createPoly(int c, int e)
 {
+	int key = 0;
 	Node *curr = new Node;
 	curr->next = NULL;
 	curr->coef = c;
@@ -43,9 +44,28 @@ void Poly::createPoly(int c, int e)
 		return;
 	}
 	Node *temp = head;
+	if (temp->next == NULL && e == temp->exp)
+	{
+		temp->coef = c + temp->coef;
+		key = 1;
+	}
+	
 	while (temp->next != NULL)
-		temp = temp->next;
-	temp->next = curr;
+	{
+		if (e == temp->exp)
+		{
+			temp->coef = c + temp->coef;
+			key = 1;
+			break;
+		}
+		else
+		{
+			temp = temp->next;
+			key = 0;
+		}
+	}
+	if (key == 0)
+		temp->next = curr;
 }
 
 void Poly::display()
