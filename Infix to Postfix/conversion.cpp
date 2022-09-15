@@ -31,7 +31,7 @@ void infixToPostfix(string s)
         else if (c == '(')
             st.push('(');
 
-        // If the scanned character is an ‘)’, pop and to output string from the stack until an ‘(‘ is encountered.
+        // If the scanned character is an ‘)’, pop to output string from the stack until ‘(‘ is encountered.
         else if (c == ')')
         {
             while (st.top() != '(')
