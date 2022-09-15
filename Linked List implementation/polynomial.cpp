@@ -38,7 +38,7 @@ void Poly::createPoly(int c, int e)
 	curr->next = NULL;
 	curr->coef = c;
 	curr->exp = e;
-	if (head == NULL) // Empty list
+	if (isEmpty()) // Empty list
 	{
 		head = curr;
 		return;
