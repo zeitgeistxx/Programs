@@ -25,8 +25,11 @@ public:
     void search(int);
     void smallest();
     void largest();
-    int totalNodes(Node *);
     void del(int);
+    int totalNodes(Node *);
+    int externalNodes(Node *);
+    int internalNodes(Node *);
+    void height();
 };
 
 int Tree::isEmpty()
@@ -205,7 +208,7 @@ void Tree::del(int key)
         temp = NULL;
     }
 
-    // When both of the children node is present
+    // When both of the children node is present of node is to be deleted
     else
     {
         Node *succ = temp->rchild, *psucc = NULL;
@@ -225,6 +228,24 @@ void Tree::del(int key)
     }
 }
 
+int Tree::externalNodes(Node *r)
+{
+    if(r == NULL) return 0;
+    if (r->lchild == NULL && r->rchild == NULL)
+        return 1;
+    else
+        return externalNodes(r->lchild) + externalNodes(r->rchild);
+}
+
+int Tree::internalNodes(Node *r)
+{
+    return totalNodes(r) - externalNodes(r);
+}
+
+void Tree::height()
+{
+}
+
 int main()
 {
     Tree t;
@@ -241,6 +262,9 @@ int main()
         cout << "7.LARGEST ELEMENT" << endl;
         cout << "8.TOTAL NODES" << endl;
         cout << "9.DELETE" << endl;
+        cout << "10.INTERNAL NODES" << endl;
+        cout << "11.EXTERNAL NODES" << endl;
+        cout << "12.HEIGHT" << endl;
         cout << "Enter Choice ->";
         cin >> choice;
 
@@ -295,9 +319,34 @@ int main()
             }
             break;
 
+        case 10:
+            if (!t.isEmpty())
+            {
+                cout << "Internal Nodes ->" << t.internalNodes(t.root);
+            }
+            else
+            {
+                cout << "Tree is empty" << endl;
+            }
+            break;
+
+        case 11:
+            if (!t.isEmpty())
+            {
+                cout << "External Nodes ->" << t.externalNodes(t.root);
+            }
+            else
+            {
+                cout << "Tree is empty" << endl;
+            }
+            break;
+
+        case 12:
+            
+
         default:
             cout << "Invalid Choice" << endl;
-            break;
+            exit(0);
         }
     }
 }
