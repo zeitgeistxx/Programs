@@ -29,7 +29,8 @@ public:
     int totalNodes(Node *);
     int externalNodes(Node *);
     int internalNodes(Node *);
-    void height();
+    int height(Node *);
+    void deleteTree(Node *);
 };
 
 int Tree::isEmpty()
@@ -226,11 +227,14 @@ void Tree::del(int key)
         delete succ;
         succ = NULL;
     }
+    cout << "Item deleted successfully" << endl;
+
 }
 
 int Tree::externalNodes(Node *r)
 {
-    if(r == NULL) return 0;
+    if (r == NULL)
+        return 0;
     if (r->lchild == NULL && r->rchild == NULL)
         return 1;
     else
@@ -242,8 +246,25 @@ int Tree::internalNodes(Node *r)
     return totalNodes(r) - externalNodes(r);
 }
 
-void Tree::height()
+int Tree::height(Node *r)
 {
+    int LTheight, RTheight;
+    if (r == NULL)
+        return 0;
+    LTheight = height(r->lchild);
+    RTheight = height(r->rchild);
+    return max(LTheight, RTheight) + 1;
+}
+
+void Tree::deleteTree(Node *r){
+    if(r == NULL)
+        return;
+    deleteTree(r->lchild);
+    deleteTree(r->rchild);
+
+    cout << "\n  Deleting Node... " << r->data;
+    delete r;
+    root = NULL;
 }
 
 int main()
@@ -265,6 +286,7 @@ int main()
         cout << "10.INTERNAL NODES" << endl;
         cout << "11.EXTERNAL NODES" << endl;
         cout << "12.HEIGHT" << endl;
+        cout << "13.DELETE TREE" << endl;
         cout << "Enter Choice ->";
         cin >> choice;
 
@@ -342,7 +364,12 @@ int main()
             break;
 
         case 12:
-            
+            cout << "The Height of the BST is " << t.height(t.root);
+            break;
+
+        case 13: 
+            t.deleteTree(t.root);
+            break;
 
         default:
             cout << "Invalid Choice" << endl;
