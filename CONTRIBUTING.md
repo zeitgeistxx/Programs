@@ -20,7 +20,7 @@ If you're new to _git_ and/or _GitHub_, we suggest you go through [the GitHub Gu
    - Using GitHub CLI
 
      ```shell
-    gh repo clone Abhirup-02/Programs
+     gh repo clone Abhirup-02/Programs
      ```
 
 3. Create a new branch 
