@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <conio.h>
 #include <string>
+#include<vector>
 using namespace std;
 
 int ascii = 178;
@@ -41,14 +42,14 @@ char ch = ascii;
 int a = 0;
 struct Register
 {
-    int id;
+    string id;
     string name, email, phone, password;
 }R[25];
 
 void registerAccount(){
     system("cls");
     registering;
-    cout << "\n\n "<< ch << ch << " ENTER USER ID (Only numbers) -> ";
+    cout << "\n\n "<< ch << ch << " ENTER USER ID -> ";
     cin >> R[a].id;
     cout << "\n\n "<< ch << ch << " ENTER USERNAME -> ";
     cin >> R[a].name;
@@ -58,23 +59,25 @@ void registerAccount(){
     cin >> R[a].phone;
     char d;
     cout << "\n\n "<< ch << ch << " ENTER PASSWORD -> ";
-    do
-    {
-        d = getch();
-        if(isdigit(d) || isalpha(d) || ispunct(d))
+    while(R[a].password.empty()){
+        do
         {
-            R[a].password.push_back(d);
-            cout << "*";
-        }
-        if(d == '\b')
-        {
-            R[a].password.pop_back();
+            d = getch();
+            if(isdigit(d) || isalpha(d) || ispunct(d))
+            {
+                R[a].password.push_back(d);
+                cout << "*";
+            }
+            if(d == '\b' && !R[a].password.empty())
+            {
+                R[a].password.pop_back();
+                // cursor moves back 1 position
+                cout << "\b";
+            
+            }
+        } while (isdigit(d) || isalpha(d) || ispunct(d) || d == '\b' || d == '\t' || d == 32); // spacebar ASCII value 32
+    }
 
-            // cursor moves back 1 position
-            cout << "\b";
-        
-        }
-    } while (isdigit(d) || isalpha(d) || ispunct(d) || d == '\b' || d == '\t' || d == 32); // spacebar ASCII value 32
     a++;
     cout << " \n\n\n " << ch << ch << " ACCOUNT REGISTERED SUCCESSFULLY " << ch << ch << "\n ";
     system("pause");
@@ -97,20 +100,22 @@ void loginAccount()
         cout << " \n\n "<< ch << ch << " ENTER EMAIL ID -> ";
         cin >> t_email;
         cout << " \n\n "<< ch << ch << " ENTER PASSWORD -> ";
-        do
-        {
-            d = getch();
-            if(isdigit(d) || isalpha(d) || ispunct(d))
+        while(t_password.empty()){
+            do
             {
-                t_password.push_back(d);
-                cout << "*";
-            }
-            if(d == '\b')
-            {
-                t_password.pop_back();
-                cout << "_";
-            }
-        } while (isdigit(d) || isalpha(d) || ispunct(d) || d == '\b' || d == '\t' || d == 32);
+                d = getch();
+                if(isdigit(d) || isalpha(d) || ispunct(d))
+                {
+                    t_password.push_back(d);
+                    cout << "*";
+                }
+                if(d == '\b' && !R[a].password.empty())
+                {
+                    t_password.pop_back();
+                    cout << "_";
+                }
+            } while (isdigit(d) || isalpha(d) || ispunct(d) || d == '\b' || d == '\t' || d == 32);
+        }
 
     }
 
@@ -148,8 +153,7 @@ void forgotEmail()
 {
     system("cls");
     forgotemail;
-    int uid;
-    string t_password;
+    string uid, t_password;
     if(a==0)
     {
         cout << " \n\n\n " << ch << ch << " NO RECORD FOUND " << ch << ch << "\n ";
@@ -162,20 +166,22 @@ void forgotEmail()
         cin >> uid;
         char d;
         cout << " \n\n "<< ch << ch << " ENTER PASSWORD -> ";
-        do
-        {
-            d = getch();
-            if(isdigit(d) || isalpha(d) || ispunct(d))
+        while(t_password.empty()){
+            do
             {
-                t_password.push_back(d);
-                cout << "*";
-            }
-            if(d == '\b')
-            {
-                t_password.pop_back();
-                cout << "_";
-            }
-        } while (isdigit(d) || isalpha(d) || ispunct(d) || d == '\b' || d == '\t' || d == 32);
+                d = getch();
+                if(isdigit(d) || isalpha(d) || ispunct(d))
+                {
+                    t_password.push_back(d);
+                    cout << "*";
+                }
+                if(d == '\b' && !R[a].password.empty())
+                {
+                    t_password.pop_back();
+                    cout << "_";
+                }
+            } while (isdigit(d) || isalpha(d) || ispunct(d) || d == '\b' || d == '\t' || d == 32);
+        }
 
     }
 
@@ -213,8 +219,7 @@ void forgotPassword()
 {
     system("cls");
     forgotpassword;
-    string t_email;
-    int uid;
+    string uid, t_email;
     if(a==0)
     {
         cout << " \n\n\n " << ch << ch << " NO RECORD FOUND " << ch << ch << "\n ";
