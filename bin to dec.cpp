@@ -11,5 +11,12 @@ int main(){
 		num=num/10;
 		weight=weight*2;
 	}
+	
+// 	<-----Alternate method------>
+// 	after taking input(from line 7) num We can also write this code
+// 	string inum = to_string(num);
+//  	cout << stoi(inum, 0, 2);
+// 	<--Closed Alternate method-->
+	
 	cout<<decimal;
 }
