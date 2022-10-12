@@ -2,7 +2,6 @@
 #include <iomanip>
 #include <conio.h>
 #include <string>
-#include<vector>
 using namespace std;
 
 int ascii = 178;
@@ -72,13 +71,13 @@ void registerAccount(){
             {
                 R[a].password.pop_back();
                 // cursor moves back 1 position
-                cout << "\b";
-            
+                cout << "\b" << " " << "\b";
             }
         } while (isdigit(d) || isalpha(d) || ispunct(d) || d == '\b' || d == '\t' || d == 32); // spacebar ASCII value 32
     }
-
+            
     a++;
+
     cout << " \n\n\n " << ch << ch << " ACCOUNT REGISTERED SUCCESSFULLY " << ch << ch << "\n ";
     system("pause");
 }
@@ -112,7 +111,7 @@ void loginAccount()
                 if(d == '\b' && !R[a].password.empty())
                 {
                     t_password.pop_back();
-                    cout << "_";
+                    cout << "\b" << " " << "\b";
                 }
             } while (isdigit(d) || isalpha(d) || ispunct(d) || d == '\b' || d == '\t' || d == 32);
         }
@@ -178,7 +177,7 @@ void forgotEmail()
                 if(d == '\b' && !R[a].password.empty())
                 {
                     t_password.pop_back();
-                    cout << "_";
+                    cout << "\b" << " " << "\b";
                 }
             } while (isdigit(d) || isalpha(d) || ispunct(d) || d == '\b' || d == '\t' || d == 32);
         }
