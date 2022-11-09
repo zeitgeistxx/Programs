@@ -13,7 +13,7 @@ int main(){
     }
 
     int item;
-    cout <<"Enter the element to serach: ";
+    cout <<"Enter the element to search: ";
     cin>>item;
 
     int key=0;
