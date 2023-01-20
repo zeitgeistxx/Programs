@@ -50,7 +50,7 @@ int main()
 	int n;
 	cout << "Enter array size -> ";
 	cin >> n;
-	int a[n], c[n];
+	int a[n];
 
 	cout << "Enter elements -> ";
 	for (int i = 0; i < n; i++)
