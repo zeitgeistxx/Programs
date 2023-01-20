@@ -30,9 +30,7 @@ void countSort(int a[], int n)
 
 	for (int i = n - 1; i >= 0; i--)
 	{
-		int index = count[a[i]] - 1;
-		count[a[i]]--;
-		output[index] = a[i];
+		output[--count[a[i]]] = a[i];
 	}
 
 	for (int i = 0; i < n; i++)
