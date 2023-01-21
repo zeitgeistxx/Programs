@@ -5,7 +5,7 @@ using namespace std;
 char a[5000];
 
 void Binary(int n){
-    if(n<1){
+    if(n < 1){
         cout << a << endl;
     }
 

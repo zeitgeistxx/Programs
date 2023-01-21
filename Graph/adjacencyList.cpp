@@ -13,6 +13,7 @@ int main()
 
     vector<int> adjL[n+1]; // create static array of n+1 vectors   
 
+    cout << "Enter the nodes which are connected ->" << endl;
     loop(i,0,e)
     {
         int x, y;

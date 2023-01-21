@@ -86,12 +86,12 @@ int main()
 
     while (true)
     {
-        cout << "Press 1 to check if Stack is Full" << endl;
-        cout << "Press 2 to check if Stack is Empty" << endl;
-        cout << "Press 3 to push an item to Stack" << endl;
-        cout << "Press 4 to pop top item from Stack" << endl;
-        cout << "Press 5 to peek into Stack" << endl;
-        cout << "Press 6 to Display the Stack" << endl;
+        cout << "1.FULL" << endl;
+        cout << "2.EMPTY" << endl;
+        cout << "3.PUSH" << endl;
+        cout << "4.POP" << endl;
+        cout << "5.PEEK" << endl;
+        cout << "6.DISPLAY" << endl;
         cout << "Choose an operation ->" << endl;
 
         int y;

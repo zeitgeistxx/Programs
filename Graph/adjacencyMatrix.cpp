@@ -11,6 +11,7 @@ int main()
 
     vector<vector<int>> adjM(n + 1, vector<int>(n + 1, 0));
 
+    cout << "Enter the nodes which are connected ->" << endl;
     loop(i, 0, e)
     {
         int x, y;
