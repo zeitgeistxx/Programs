@@ -21,6 +21,7 @@ void dfs(int node){
     }
 
     //postorder
+    // cout << node << " ";
 }
 
 
