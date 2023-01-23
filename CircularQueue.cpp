@@ -2,16 +2,16 @@
 using namespace std;
 #define size 10
 
-class Queue
+class CQueue
 {
     int front, rear;
     int arr[size];
 
 public:
-    Queue()
+    CQueue()
     {
-        front = -1;
-        rear = -1;
+        front = 0;
+        rear = 0;
     }
     bool isFull();
     bool isEmpty();
@@ -20,15 +20,15 @@ public:
     void display();
 };
 
-bool Queue::isFull()
+bool CQueue::isFull()
 {
-    if (rear == size - 1)
+    if ((rear+1) % size == front)
     {
         return true;
     }
     return false;
 }
-bool Queue::isEmpty()
+bool CQueue::isEmpty()
 {
     if (front == rear)
     {
@@ -37,44 +37,47 @@ bool Queue::isEmpty()
     return false;
 }
 
-void Queue::insert(int x)
+void CQueue::insert(int x)
 {
     if (isFull())
     {
         cout << "Queue is Full" << endl;
         return;
     }
-    rear++;
+    rear = (rear + 1) % size;
     arr[rear] = x;
 }
 
-void Queue::del()
+void CQueue::del()
 {
     if (isEmpty())
     {
         cout << "Queue is empty" << endl;
         return;
     }
-    front++;
+    front = (front + 1) % size;
 }
 
-void Queue::display()
+void CQueue::display()
 {
     if (!isEmpty())
     {
-        for (int i = front + 1; i <= rear; i++)
+        int i;
+        for (i = (front + 1) % size; i != rear; i = (i + 1) % size)
         {
             cout << arr[i] << " ";
         }
+        cout << arr[i] << endl;
     }
     cout << "\n\n\n";
 }
 
 int main()
 {
-    Queue q;
+    CQueue q;
     int item;
 
+    cout << endl;
     while (true)
     {
         cout << "1.FULL" << endl;

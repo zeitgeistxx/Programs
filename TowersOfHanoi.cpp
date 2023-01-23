@@ -21,3 +21,6 @@ int main(){
     
     TowersOfHanoi(n,fromTower,toTower,auxTower);
 }
+
+
+// (2^n - 1) moves needed
