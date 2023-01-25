@@ -10,12 +10,11 @@ class Queue
 public:
     Queue()
     {
-        front = -1;
-        rear = -1;
+        front = rear = -1;
     }
     bool isFull();
     bool isEmpty();
-    void insert(int x);
+    void insert(int);
     void del();
     void display();
 };

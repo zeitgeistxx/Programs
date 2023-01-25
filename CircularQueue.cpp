@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#define size 10
+#define size 5
 
 class CQueue
 {
@@ -10,12 +10,11 @@ class CQueue
 public:
     CQueue()
     {
-        front = 0;
-        rear = 0;
+        front = rear = 0;
     }
     bool isFull();
     bool isEmpty();
-    void insert(int x);
+    void insert(int);
     void del();
     void display();
 };
@@ -36,6 +35,7 @@ bool CQueue::isEmpty()
     }
     return false;
 }
+
 
 void CQueue::insert(int x)
 {
@@ -69,7 +69,7 @@ void CQueue::display()
         }
         cout << arr[i] << endl;
     }
-    cout << "\n\n\n";
+    cout << "\n";
 }
 
 int main()
@@ -77,15 +77,15 @@ int main()
     CQueue q;
     int item;
 
-    cout << endl;
     while (true)
     {
+        cout << "\n\n\n";   
         cout << "1.FULL" << endl;
         cout << "2.EMPTY" << endl;
         cout << "3.INSERT" << endl;
         cout << "4.DELETE" << endl;
         cout << "5.DISPLAY" << endl;
-        cout << "Choose an operation ->" << endl;
+        cout << "Choose an operation ->";
 
         int choice;
         cin >> choice;

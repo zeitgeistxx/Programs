@@ -14,7 +14,7 @@ public:
     }
     bool isFull();
     bool isEmpty();
-    void push(int x);
+    void push(int);
     void pop();
     int peek();
     void display();
@@ -42,6 +42,7 @@ void Stack::push(int x)
     if (isFull())
     {
         cout << "Stack is Full" << endl;
+        return;
     }
     top++;
     arr[top] = x;
@@ -52,8 +53,8 @@ void Stack::pop()
     if (isEmpty())
     {
         cout << "Stack is empty" << endl;
+        return;
     }
-    int x = arr[top];
     top--;
 }
 
@@ -62,6 +63,7 @@ int Stack::peek()
     if (isEmpty())
     {
         cout << "Stack Empty" << endl;
+        return;
     }
     int x = arr[top];
     return x;
@@ -99,17 +101,17 @@ int main()
         switch (y)
         {
         case 1:
-            if (s.isFull() == 0)
-                cout << "False" << endl;
-            else
+            if (s.isFull())
                 cout << "True" << endl;
+            else
+                cout << "False" << endl;
             break;
 
         case 2:
-            if (s.isEmpty() == 0)
-                cout << "False" << endl;
-            else
+            if (s.isEmpty())
                 cout << "True" << endl;
+            else
+                cout << "False" << endl;
             break;
 
         case 3:
