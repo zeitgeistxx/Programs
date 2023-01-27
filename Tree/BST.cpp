@@ -11,13 +11,15 @@ struct Node
 
 class Tree
 {
-public:
     Node *root;
+
+public:
     Tree()
     {
         root = NULL;
     }
     int isEmpty();
+    Node *getRoot();
     void insert(int);
     void inOrder(Node *);
     void preOrder(Node *);
@@ -38,6 +40,11 @@ int Tree::isEmpty()
     if (root == NULL)
         return 1;
     return 0;
+}
+
+Node* Tree::getRoot()
+{
+    return root;
 }
 
 Node *createNode(int item)
@@ -228,7 +235,6 @@ void Tree::del(int key)
         succ = NULL;
     }
     cout << "Item deleted successfully" << endl;
-
 }
 
 int Tree::externalNodes(Node *r)
@@ -256,8 +262,9 @@ int Tree::height(Node *r)
     return max(LTheight, RTheight) + 1;
 }
 
-void Tree::deleteTree(Node *r){
-    if(r == NULL)
+void Tree::deleteTree(Node *r)
+{
+    if (r == NULL)
         return;
     deleteTree(r->lchild);
     deleteTree(r->rchild);
@@ -299,15 +306,15 @@ int main()
             break;
 
         case 2:
-            t.inOrder(t.root);
+            t.inOrder(t.getRoot());
             break;
 
         case 3:
-            t.preOrder(t.root);
+            t.preOrder(t.getRoot());
             break;
 
         case 4:
-            t.postOrder(t.root);
+            t.postOrder(t.getRoot());
             break;
 
         case 5:
@@ -325,7 +332,7 @@ int main()
             break;
 
         case 8:
-            cout << "Total Nodes in BST ->" << t.totalNodes(t.root);
+            cout << "Total Nodes in BST ->" << t.totalNodes(t.getRoot());
             break;
 
         case 9:
@@ -344,7 +351,7 @@ int main()
         case 10:
             if (!t.isEmpty())
             {
-                cout << "Internal Nodes ->" << t.internalNodes(t.root);
+                cout << "Internal Nodes ->" << t.internalNodes(t.getRoot());
             }
             else
             {
@@ -355,7 +362,7 @@ int main()
         case 11:
             if (!t.isEmpty())
             {
-                cout << "External Nodes ->" << t.externalNodes(t.root);
+                cout << "External Nodes ->" << t.externalNodes(t.getRoot());
             }
             else
             {
@@ -364,11 +371,11 @@ int main()
             break;
 
         case 12:
-            cout << "The Height of the BST is " << t.height(t.root);
+            cout << "The Height of the BST is " << t.height(t.getRoot());
             break;
 
-        case 13: 
-            t.deleteTree(t.root);
+        case 13:
+            t.deleteTree(t.getRoot());
             break;
 
         default:
