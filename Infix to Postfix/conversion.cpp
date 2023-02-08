@@ -27,11 +27,11 @@ void infixToPostfix(string s)
         if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
             result.push_back(c);
 
-        // If the scanned character is an ‘(‘, push it to the stack.
+        // If the scanned character is an '(', push it to the stack.
         else if (c == '(')
-            st.push('(');
+            st.push(c);
 
-        // If the scanned character is an ‘)’, pop to output string from the stack until ‘(‘ is encountered.
+        // If the scanned character is an ')', pop to output string from the stack until ‘(‘ is encountered.
         else if (c == ')')
         {
             while (st.top() != '(')
