@@ -1,25 +1,53 @@
 #include<iostream>
 #include<algorithm>
+#include<cstdlib>
 using namespace std;
 
 
-int partition(int a[], int low, int high){
-    int i = low - 1, pivot = a[high];
-    for (int j = low; j < high; j++){
-        if(a[j] < pivot){
-            i++;
+// Horae's partition algo
+int HoraePartition(int a[], int low, int high){
+    int j = low, pivot = a[low];
+    for (int i = low + 1; i <= high; i++){
+        if(a[i] < pivot){
+            j++;
             swap(a[i], a[j]);
         }
     }
-    swap(a[i + 1], a[high]);
-    return i + 1;
+    swap(a[j], a[low]);
+    return j;
 }
 
-void quickSort(int a[], int low, int high){
+
+// Lomuto's partition algo
+int LomutoPartition(int a[], int low, int high){
+    int j = low - 1, pivot = a[high];
+    for (int i = low; i < high; i++){
+        if(a[i] <= pivot){
+            j++;
+            swap(a[i], a[j]);
+        }
+    }
+    swap(a[++j], a[high]);
+    return j;
+}
+
+void QuickSort(int a[], int low, int high){
     if (low < high){
-        int pivot = partition(a, low, high);
-        quickSort(a, low, pivot - 1);
-        quickSort(a, pivot + 1, high);
+        int pivot = LomutoPartition(a, low, high);
+        QuickSort(a, low, pivot - 1);
+        QuickSort(a, pivot + 1, high);
+    }
+}
+
+void RandomizeQuickSort(int a[], int low, int high){
+    if(low < high){
+        if(high - low + 1 > 5){
+            int pos = rand() % (high - low + 1) + low;
+            swap(a[low], a[pos]);
+        }
+        int pivot = LomutoPartition(a, low, high);
+        RandomizeQuickSort(a, low, pivot - 1);
+        RandomizeQuickSort(a, pivot + 1, high);
     }
 }
 
@@ -37,7 +65,7 @@ int main(){
 		cin >> a[i];
 	}
 
-    quickSort(a, 0, n - 1);
+    RandomizeQuickSort(a, 0, n - 1);
     for (int i = 0; i < n; i++){
         cout << a[i] << " ";
     }
