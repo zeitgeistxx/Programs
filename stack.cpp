@@ -63,7 +63,7 @@ int Stack::peek()
     if (isEmpty())
     {
         cout << "Stack Empty" << endl;
-        return;
+        return -999;
     }
     int x = arr[top];
     return x;
