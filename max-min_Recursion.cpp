@@ -7,10 +7,9 @@ int Max = INT_MIN, Min = INT_MAX;
 
 
 void MaxMin(int a[], int low, int high){
-    int i = low, j = high;
-    if(i == j){
-        if(a[i] > Max) Max = a[i];
-        if(a[i] < Min) Min = a[i];
+    if(low == high){
+        if(a[low] > Max) Max = a[low];
+        if(a[low] < Min) Min = a[low];
     }
     else{
         int mid = (low + high) / 2;

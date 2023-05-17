@@ -1,22 +1,22 @@
 #include <iostream>
+#include<iomanip>
 using namespace std;
 
 int n, w[10][10];
 
-void readGraph()
-{
-    FILE *fp;
-    fp = fopen("graph.txt", "r");
+void readGraph(){
+
+    FILE* fp = fopen("graph.txt", "r");
     if (fp == NULL)
     {
-        cout << "File open failed" << endl;
+        cout << "No such file." << endl;
         return;
     }
+
     fscanf(fp, "%d", &n);
-    int i, j;
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (j = 0; j < n; j++)
+        for (int j = 0; j < n; j++)
         {
             fscanf(fp, "%d", &w[i][j]);
         }
@@ -26,28 +26,23 @@ void readGraph()
 
 void showGraph()
 {
-    int i, j;
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (j = 0; j < n; j++)
-        {
-            printf("%3d", w[i][j]);
-        }
+        for (int j = 0; j < n; j++) cout << setw(3) << w[i][j];
         cout << endl;
     }
 }
 
-int key[10];
-int parent[10];
-int mstSet[10];
+
+int key[10], parent[10], MSTset[10];
 
 int minKey()
 {
-    int min = 9999;
-    int minIndex = -1, i;
-    for (i = 0; i < n; i++)
+    int min = 9999, minIndex = -1;
+
+    for (int i = 0; i < n; i++)
     {
-        if (mstSet[i] == 0)
+        if (MSTset[i] == 0)
         {
             if (min > key[i])
             {
@@ -61,23 +56,25 @@ int minKey()
 
 void Prims(int r)
 {
-    int i, v;
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         key[i] = 9999;
         parent[i] = -1;
-        mstSet[i] = 0;
+        MSTset[i] = 0;
     }
+
     key[r] = 0;
-    for (i = 0; i < n; i++)
+
+    for (int i = 0; i < n; i++)
     {
         int u = minKey();
-        mstSet[u] = 1;
-        for (v = 0; v < n; v++)
+        MSTset[u] = 1;
+
+        for (int v = 0; v < n; v++)
         {
             if (w[u][v] != 0)
             {
-                if (mstSet[v] == 0 && key[v] > w[u][v])
+                if (MSTset[v] == 0 && key[v] > w[u][v])
                 {
                     key[v] = w[u][v];
                     parent[v] = u;
@@ -89,11 +86,8 @@ void Prims(int r)
 
 void showTree()
 {
-    int i;
-    for (i = 0; i < n; i++)
-    {
-        if (parent[i] != -1)
-            printf("%c->%c,%d\n", parent[i] + 'A', i + 'A', w[parent[i]][i]);
+    for (int i = 0; i < n; i++){ 
+        if (parent[i] != -1) cout << char(parent[i]+'A') << " -> " << char(i+'A') << " : " << w[parent[i]][i] << endl;
     }
 }
 
