@@ -109,10 +109,10 @@ int main(){
         int node = q.peek();
         q.del();
 
-        cout << node << setw(5);
+        cout << char(node + 'A') << setw(5);
 
         for (int i = 0; i < n; i++){
-            if(adjM[node][i] == 1 && !visited[i]){
+            if(adjM[node][i] && !visited[i]){
                 visited[i] = 1;
                 q.insert(i);
             }
