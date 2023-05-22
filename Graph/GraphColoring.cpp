@@ -29,7 +29,7 @@ int mColoring(int k){
     while(true){
         nextValue(k);
         if(x[k] == 0) return n;
-        if(k==n){
+        if(k == n){
             for (int i = 1; i <= n; i++) cout << x[i] << " ";
             cout << endl;
         }

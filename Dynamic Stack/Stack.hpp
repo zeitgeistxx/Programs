@@ -66,9 +66,3 @@ public:
         cout << endl;
     }
 };
-
-
-
-// bool Stack<T>::isEmpty(){
-//     return top == -1;
-// }

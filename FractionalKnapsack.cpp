@@ -7,13 +7,11 @@ void FractionalKnapsack(int m, int n){
     float p[n], w[n], x[n];
     x[n] = {0};
 
-    cout << "Enter Profits -> ";
-    for (int i = 1; i <= n; i++)
-        cin >> p[i];
+    cout << "Enter Profits -> ";                                        /* p[i]/w[i] >= p[i+1]/w[i+1] */ 
+    for (int i = 1; i <= n; i++) cin >> p[i];
 
     cout << "Enter Weights -> ";
-    for (int i = 1; i <= n; i++)
-        cin >> w[i];
+    for (int i = 1; i <= n; i++) cin >> w[i];
 
     for (int i = 1; i <= n; i++){
         if(w[i] > m){
