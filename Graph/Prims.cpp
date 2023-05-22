@@ -7,27 +7,22 @@ int n, G[10][10];
 
 void readGraph(){
     FILE* fp = fopen("graph.txt", "r");
-    if (fp == NULL)
-    {
+    if (fp == NULL){
         cout << "No such file." << endl;
         return;
     }
 
     fscanf(fp, "%d", &n);
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
             fscanf(fp, "%d", &G[i][j]);
         }
     }
     fclose(fp);
 }
 
-void showGraph()
-{
-    for (int i = 0; i < n; i++)
-    {
+void showGraph(){
+    for (int i = 0; i < n; i++){
         for (int j = 0; j < n; j++) cout << setw(3) << G[i][j];
         cout << endl;
     }
@@ -39,7 +34,7 @@ int key[10], parent[10], MSTset[10];
 int minKey(){
     int min = INT_MAX, minIndex = -1;
     for (int i = 0; i < n; i++){
-        if (MSTset[i] == 0){
+        if (!MSTset[i]){
             if (min > key[i]){
                 min = key[i];
                 minIndex = i;
