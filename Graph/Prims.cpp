@@ -58,7 +58,7 @@ void Prims(int r){
 
         for (int v = 0; v < n; v++){
             if (G[u][v] != 0){
-                if (!MSTset[v] && key[v] > G[u][v]){
+                if (key[v] > G[u][v] && !MSTset[v]){
                     key[v] = G[u][v];
                     parent[v] = u;
                 }
