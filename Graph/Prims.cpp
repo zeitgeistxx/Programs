@@ -31,7 +31,7 @@ void showGraph(){
 
 int key[10], parent[10], MSTset[10];
 
-int minKey(){
+int ExtractMin(){
     int min = INT_MAX, minIndex = -1;
     for (int i = 0; i < n; i++){
         if (!MSTset[i]){
@@ -53,7 +53,7 @@ void Prims(int r){
     key[r] = 0;
 
     for (int i = 0; i < n; i++){
-        int u = minKey();
+        int u = ExtractMin();
         MSTset[u] = 1;
 
         for (int v = 0; v < n; v++){
