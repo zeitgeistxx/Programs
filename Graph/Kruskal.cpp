@@ -37,7 +37,7 @@ void Union(int i, int j){
     parent[v] = u;
 }
 
-int treeEdge[100][2], countTreeEdge = 0, nov = 6, cost = 0;
+int treeEdge[100][2], countTreeEdge = 0, nov = 6;
 
 // Greedy approach
 void Kruskal(){

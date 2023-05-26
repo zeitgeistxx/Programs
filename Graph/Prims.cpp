@@ -29,14 +29,14 @@ void showGraph(){
 }
 
 
-int key[10], parent[10], MSTset[10];
+int weight[10], parent[10], MSTset[10];
 
 int ExtractMin(){
-    int min = INT_MAX, minIndex = -1;
+    int minWeight = INT_MAX, minIndex = -1;
     for (int i = 0; i < n; i++){
         if (!MSTset[i]){
-            if (min > key[i]){
-                min = key[i];
+            if (minWeight > weight[i]){
+                minWeight = weight[i];
                 minIndex = i;
             }
         }
@@ -44,23 +44,25 @@ int ExtractMin(){
     return minIndex;
 }
 
-void Prims(int r){
+
+// We have to give a source to find its adjacent least weighted path
+void Prims(int src){
     for (int i = 0; i < n; i++){
-        key[i] = INT_MAX;
+        weight[i] = INT_MAX;
         parent[i] = -1;
         MSTset[i] = 0;
     }
-    key[r] = 0;
-
+    weight[src] = 0;
+ 
     for (int i = 0; i < n; i++){
-        int u = ExtractMin();
-        MSTset[u] = 1;
+        int minEdge = ExtractMin();
+        MSTset[minEdge] = 1;
 
-        for (int v = 0; v < n; v++){
-            if (G[u][v] != 0){
-                if (key[v] > G[u][v] && !MSTset[v]){
-                    key[v] = G[u][v];
-                    parent[v] = u;
+        for (int j = 0; j < n; j++){
+            if (G[minEdge][j] != 0){
+                if (weight[j] > G[minEdge][j] && !MSTset[j]){
+                    weight[j] = G[minEdge][j];
+                    parent[j] = minEdge;
                 }
             }
         }

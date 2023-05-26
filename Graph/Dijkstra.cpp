@@ -29,14 +29,16 @@ void showGraph(){
     }
 }
 
-int dist[10], parent[10], sptSet[10]; // shortest path tree set (sptSet)
 
-int minKey(){
-    int min = INT_MAX, minIndex = -1;
+// Single source shortest path, for directed and undirected Graph
+int dist[10], parent[10], SPTset[10]; // shortest path tree set (SPTset)
+
+int ExtractMin(){
+    int minDist = INT_MAX, minIndex = -1;
     for (int i = 0; i < n; i++){
-		if(!sptSet[i]){
-			if(min > dist[i]){
-                min = dist[i];
+		if(!SPTset[i]){
+			if(minDist > dist[i]){
+                minDist = dist[i];
                 minIndex = i;
             }
 		}
@@ -44,20 +46,23 @@ int minKey(){
 	return minIndex;
 }
 
+
+// Greedy approach
 void Dijkstra(int r){
     for (int i = 0; i < n; i++){
         dist[i] = INT_MAX;
         parent[i] = -1;
-        sptSet[i] = 0;
+        SPTset[i] = 0;
     }
     dist[r] = 0;
+    
     for (int i = 0; i < n; i++){
-        int u = minKey();
-        sptSet[u] = 1;
+        int u = ExtractMin();
+        SPTset[u] = 1;
 
         for (int v = 0; v < n; v++){
 			if(w[u][v] != 0){
-				if(dist[u] + w[u][v] < dist[v] && !sptSet[v])
+				if(dist[u] + w[u][v] < dist[v] && !SPTset[v])
 				{
                     dist[v] = dist[u] + w[u][v];
                     parent[v] = u;
