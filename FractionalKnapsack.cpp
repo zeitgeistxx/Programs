@@ -7,11 +7,15 @@ struct Bag{
     float profit, weight;
 };
 
+bool Compare(Bag a, Bag b){
+    return (a.profit / a.weight) > (b.profit / b.weight);
+}
+
 void FractionalKnapsack(int m, int n){
     Bag b[n];
     float x[n] = {0};
 
-    for (int i = 1; i <= n; i++){
+    for (int i = 0; i < n; i++){
         cout << "Number " << i << " bag ->" << endl;
 
         cout << "Enter profit : ";
@@ -22,15 +26,9 @@ void FractionalKnapsack(int m, int n){
     }
 
     /* Sort in the basis of [profit[i] / weight[i] >= profit[i+1] / weight[i+1]] */
-    for (int i = 1; i < n; i++){
-        for (int j = i + 1; j <= n; j++){
-            if(b[j].profit / b[j].weight > b[i].profit / b[i].weight){
-                swap(b[j], b[i]);
-            }
-        }
-    }
+    sort(b, b + n,  Compare);
 
-    for (int i = 1; i <= n; i++){
+    for (int i = 0; i < n; i++){
         if (b[i].weight > m){
             x[i] = m / b[i].weight;
             break;
@@ -40,7 +38,7 @@ void FractionalKnapsack(int m, int n){
     }
 
     cout << "The fractions are -> ";
-    for (int i = 1; i <= n; i++) cout << setprecision(1) << x[i] << " ";
+    for (int i = 0; i < n; i++) cout << setprecision(1) << x[i] << " ";
 }
 
 int main(){
