@@ -3,7 +3,6 @@
 #define loop(i, a, b) for (int i = a; i < b; i++)
 using namespace std;
 
-
 int main()
 {
 
@@ -11,10 +10,10 @@ int main()
     cout << "Enter no. of nodes and edges -> ";
     cin >> n >> e;
 
-    vector<int> adjL[n+1]; // create static array of n+1 vectors   
+    vector<int> adjL[n + 1]; // create static array of n+1 vectors
 
     cout << "Enter the nodes which are connected ->" << endl;
-    loop(i,0,e)
+    loop(i, 0, e)
     {
         int x, y;
         cin >> x >> y;
@@ -25,9 +24,11 @@ int main()
 
     cout << "Adjacency List of above graph is given by -> " << endl;
 
-    loop(i,1,n+1){
+    loop(i, 1, n + 1)
+    {
         cout << i << " -> ";
-        for(int x: adjL[i]){
+        for (int x : adjL[i])
+        {
             cout << x << " ";
         }
         cout << endl;

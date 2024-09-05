@@ -1,9 +1,7 @@
-#include<iostream>
-#include<iomanip>
+#include <iostream>
+#include <iomanip>
 #define size 10
 using namespace std;
-
-
 
 class Queue
 {
@@ -22,7 +20,6 @@ public:
     int peek();
     void display();
 };
-
 
 bool Queue::isEmpty()
 {
@@ -55,7 +52,8 @@ void Queue::del()
     front++;
 }
 
-int Queue::peek(){
+int Queue::peek()
+{
     return arr[front + 1];
 }
 
@@ -70,13 +68,12 @@ void Queue::display()
     }
 }
 
-
-
 int n, adjM[10][10] = {0}, visited[10] = {0}; // n = no. of vertices
 
-void readGraph(){
+void readGraph()
+{
 
-    FILE* fp = fopen("adjM.txt", "r");
+    FILE *fp = fopen("adjM.txt", "r");
     if (fp == NULL)
     {
         cout << "No such file." << endl;
@@ -94,8 +91,8 @@ void readGraph(){
     fclose(fp);
 }
 
-
-int main(){
+int main()
+{
 
     readGraph();
 
@@ -105,14 +102,17 @@ int main(){
     visited[0] = 1;
 
     cout << "BFS traversal is given below ->" << endl;
-    while(!q.isEmpty()){
+    while (!q.isEmpty())
+    {
         int node = q.peek();
         q.del();
 
         cout << char(node + 'A') << setw(5);
 
-        for (int i = 0; i < n; i++){
-            if(adjM[node][i] && !visited[i]){
+        for (int i = 0; i < n; i++)
+        {
+            if (adjM[node][i] && !visited[i])
+            {
                 visited[i] = 1;
                 q.insert(i);
             }

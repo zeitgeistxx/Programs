@@ -26,7 +26,8 @@ int main()
     loop(i, 1, n + 1)
     {
         loop(j, 1, n + 1)
-            cout << adjM[i][j] << " ";
+                cout
+            << adjM[i][j] << " ";
         cout << endl;
     }
 }

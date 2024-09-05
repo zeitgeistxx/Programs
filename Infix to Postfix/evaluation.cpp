@@ -1,7 +1,7 @@
 #include <iostream>
-#include<cmath>
-#include<stack>
-#include<climits>
+#include <cmath>
+#include <stack>
+#include <climits>
 using namespace std;
 
 float scanNum(char ch)
@@ -13,15 +13,15 @@ float scanNum(char ch)
 int isOperator(char ch)
 {
     if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^')
-        return 1; 
-    return -1;  
+        return 1;
+    return -1;
 }
 
 int isOperand(char ch)
 {
     if (ch >= '0' && ch <= '9')
         return 1;
-    return -1; 
+    return -1;
 }
 
 float operation(int a, int b, char op)
@@ -62,8 +62,6 @@ float postfixEvaluation(string postfix)
     }
     return stk.top();
 }
-
-
 
 int main()
 {

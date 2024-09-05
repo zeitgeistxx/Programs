@@ -1,33 +1,35 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 
-struct StudentData{
+struct StudentData
+{
     int rollNo;
     char name[30];
     int age;
     float marks;
 };
 
-int main(){
+int main()
+{
 
     struct StudentData abhirup;
-    //struct StudentData abhirup = {014,"Abhirup Saha",20,450};
+    // struct StudentData abhirup = {014,"Abhirup Saha",20,450};
 
     abhirup.rollNo = 014;
-    //strcpy(abhirup.name,"Abhirup Saha");
+    // strcpy(abhirup.name,"Abhirup Saha");
     printf("Enter your name: ");
     fgets(abhirup.name, 30, stdin);
     abhirup.age = 20;
     printf("Enter marks:");
     scanf("%f", &abhirup.marks);
-    //abhirup.marks = 450;
+    // abhirup.marks = 450;
 
-    printf("\n%d",abhirup.rollNo);
-    printf("\nYour full name is %s",abhirup.name);
-    printf("%d",abhirup.age);
-    printf("\n%.1f",abhirup.marks);
+    printf("\n%d", abhirup.rollNo);
+    printf("\nYour full name is %s", abhirup.name);
+    printf("%d", abhirup.age);
+    printf("\n%.1f", abhirup.marks);
 
-    return 0;  
+    return 0;
 }
 
 // #include<stdio.h>

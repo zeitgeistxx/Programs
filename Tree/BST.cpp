@@ -42,7 +42,7 @@ int Tree::isEmpty()
     return 0;
 }
 
-Node* Tree::getRoot()
+Node *Tree::getRoot()
 {
     return root;
 }

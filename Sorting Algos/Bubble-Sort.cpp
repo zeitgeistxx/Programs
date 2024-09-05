@@ -31,12 +31,14 @@ int main()
                 arr[i] = arr[i + 1];
                 arr[i + 1] = temp;
             }
-            else{
+            else
+            {
                 flag = 1;
             }
         }
         counter++;
-        if (flag == 1) break;
+        if (flag == 1)
+            break;
     }
     cout << "The sorted array is:" << " ";
     for (int i = 0; i < n; i++)

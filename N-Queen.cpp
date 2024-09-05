@@ -1,38 +1,48 @@
 #include <iostream>
-#include<algorithm>
-#include<cstdlib>
-#include<cmath>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
 using namespace std;
 
 int x[10], ans = 0;
 
-bool Place(int k, int i){
-    for (int j = 1; j < k; j++) if (x[j] == i or abs(j - k) == abs(x[j] - i)) return false;
+bool Place(int k, int i)
+{
+    for (int j = 1; j < k; j++)
+        if (x[j] == i or abs(j - k) == abs(x[j] - i))
+            return false;
     return true;
 }
 
-void nQueen(int k, int n){
+void nQueen(int k, int n)
+{
     for (int i = 1; i <= n; i++)
     {
-        if(Place(k, i)){
+        if (Place(k, i))
+        {
             x[k] = i;
-            if(k == n){
+            if (k == n)
+            {
                 ans++;
-                for (int j = 1; j <= n; j++) cout << x[j] << " ";
+                for (int j = 1; j <= n; j++)
+                    cout << x[j] << " ";
                 cout << endl;
             }
-            else nQueen(k + 1, n);
+            else
+                nQueen(k + 1, n);
         }
     }
 }
 
-int main(){
+int main()
+{
     int n;
 
     cout << "Enter no. of Queens -> ";
     cin >> n;
 
-    if(n == 2 or n == 3){
+    if (n == 2 or n == 3)
+    {
         cout << "No Possible Solution" << endl;
         return -99999;
     }

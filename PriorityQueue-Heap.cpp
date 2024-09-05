@@ -1,15 +1,19 @@
-#include<iostream>
-#include<climits>
+#include <iostream>
+#include <climits>
 using namespace std;
 
-
-void maxHeap(int a[], int m, int n){
+void maxHeap(int a[], int m, int n)
+{
     int j = 2 * m;
     int key = a[m];
-    while(j <= n){
-        if(j < n and a[j + 1] > a[j]) j++;
-        if(key > a[j]) break;
-        else if(key <= a[j]){
+    while (j <= n)
+    {
+        if (j < n and a[j + 1] > a[j])
+            j++;
+        if (key > a[j])
+            break;
+        else if (key <= a[j])
+        {
             a[j / 2] = a[j];
             j *= 2;
         }
@@ -18,44 +22,52 @@ void maxHeap(int a[], int m, int n){
     return;
 }
 
-void build_maxHeap(int a[], int n){
-    for (int i = n / 2; i >= 1; i--) maxHeap(a, i, n);
+void build_maxHeap(int a[], int n)
+{
+    for (int i = n / 2; i >= 1; i--)
+        maxHeap(a, i, n);
 }
 
-
-
-void minHeap(int a[], int m, int n){
+void minHeap(int a[], int m, int n)
+{
     int j = 2 * m;
     int key = a[m];
-    while (j <= n){
-        if (j < n && a[j + 1] < a[j]) j++;
-        if (key < a[j]) break;
+    while (j <= n)
+    {
+        if (j < n && a[j + 1] < a[j])
+            j++;
+        if (key < a[j])
+            break;
         else if (key >= a[j])
         {
             a[j / 2] = a[j];
             j *= 2;
         }
-   }
-   a[j / 2] = key;
-   return;
+    }
+    a[j / 2] = key;
+    return;
 }
 
-void build_minHeap(int a[], int n) {
-   for (int i = n / 2; i >= 1; i--) minHeap(a, i, n);
+void build_minHeap(int a[], int n)
+{
+    for (int i = n / 2; i >= 1; i--)
+        minHeap(a, i, n);
 }
-
-
 
 int n, A[30], heapCapacity = 30, heapSize;
 
-int getMin(){
-    if(heapSize == 0) return INT_MIN;
+int getMin()
+{
+    if (heapSize == 0)
+        return INT_MIN;
     return A[1];
 }
 
 /* deletes and returns min element */
-int extractMin(){
-    if(heapSize == 0) return INT_MIN;
+int extractMin()
+{
+    if (heapSize == 0)
+        return INT_MIN;
     int min = A[1];
     A[1] = A[heapSize];
     heapSize--;
@@ -64,16 +76,20 @@ int extractMin(){
     return min;
 }
 
-void decreaseKey(int i, int newVal){
+void decreaseKey(int i, int newVal)
+{
     A[i] = newVal;
-    while(i > 1 and A[i] < A[i / 2]){
+    while (i > 1 and A[i] < A[i / 2])
+    {
         swap(A[i], A[i / 2]);
         i = i / 2;
     }
 }
 
-void deleteKey(int i){
-    if(i <= 0 or i > heapSize){
+void deleteKey(int i)
+{
+    if (i <= 0 or i > heapSize)
+    {
         cout << "Incorrect operation" << endl;
         return;
     }
@@ -81,25 +97,23 @@ void deleteKey(int i){
     extractMin();
 }
 
-
-
-
-
-int main(){
+int main()
+{
 
     cout << "enter no of elements of array -> ";
     cin >> n;
     heapSize = n;
 
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++)
+    {
         cin >> A[i];
     }
 
     // build_maxHeap(a, n);
     build_minHeap(A, n);
 
-
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++)
+    {
         cout << A[i] << " ";
     }
     cout << endl;
@@ -108,7 +122,8 @@ int main(){
     // cout << extractMin() << endl;
     deleteKey(2);
 
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++)
+    {
         cout << A[i] << " ";
     }
 }

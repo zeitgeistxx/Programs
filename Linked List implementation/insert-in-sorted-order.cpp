@@ -100,7 +100,8 @@ void List::del(int item)
         cout << "Item deleted" << endl;
     }
     // Delete any Node
-    else{
+    else
+    {
         prev->next = temp->next;
         delete temp;
         temp = NULL;

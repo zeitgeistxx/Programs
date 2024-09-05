@@ -53,7 +53,8 @@ void List::insertEnd(int item)
         return;
     }
     Node *temp = head;
-    while (temp->next != NULL) temp = temp->next;
+    while (temp->next != NULL)
+        temp = temp->next;
     temp->next = curr;
 }
 
@@ -82,7 +83,8 @@ void List::deleteEnd()
         head = NULL;
     }
     Node *temp = head;
-    while (temp->next->next != NULL) temp = temp->next;
+    while (temp->next->next != NULL)
+        temp = temp->next;
     delete temp->next;
     temp->next = NULL;
 }
@@ -183,7 +185,7 @@ int main()
             cout << "The List ->";
             l.display();
             break;
-            
+
         case 6:
             cout << "Enter an element to Search ->";
             cin >> item;
@@ -193,7 +195,7 @@ int main()
         case 7:
             l.reverse();
             break;
-            
+
         default:
             cout << "Invalid choice" << endl;
             exit(0);

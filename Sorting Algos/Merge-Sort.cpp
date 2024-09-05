@@ -9,35 +9,42 @@ void merge(int a[], int low, int mid, int high)
 
 	while (i <= mid && j <= high)
 	{
-		if (a[i] <= a[j]){
+		if (a[i] <= a[j])
+		{
 			c[k] = a[i];
 			i++;
 		}
-		else{
+		else
+		{
 			c[k] = a[j];
 			j++;
 		}
 		k++;
 	}
 
-	while (i <= mid){
+	while (i <= mid)
+	{
 		c[k] = a[i];
 		i++;
 		k++;
 	}
-	while (j <= high){
+	while (j <= high)
+	{
 		c[k] = a[j];
 		j++;
 		k++;
 	}
 
-	for (int i = low; i <= high; i++){
+	for (int i = low; i <= high; i++)
+	{
 		a[i] = c[i];
 	}
 }
 
-void mergeSort(int a[], int low, int high){
-	if(low < high){
+void mergeSort(int a[], int low, int high)
+{
+	if (low < high)
+	{
 		int mid = (low + high) / 2;
 		mergeSort(a, low, mid);
 		mergeSort(a, mid + 1, high);

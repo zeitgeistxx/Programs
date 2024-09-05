@@ -7,7 +7,6 @@ int main()
     Stack<int> s(5);
     int item;
 
-
     while (true)
     {
         cout << "\n\n";
@@ -48,15 +47,19 @@ int main()
             break;
 
         case 5:
-            if(s.isEmpty()) cout << "Stack is Empty" << endl;
-            else{
+            if (s.isEmpty())
+                cout << "Stack is Empty" << endl;
+            else
+            {
                 cout << "The top element -> " << s.peek() << endl;
             }
             break;
 
         case 6:
-            if(s.isEmpty()) cout << "Stack is Empty" << endl;
-            else{
+            if (s.isEmpty())
+                cout << "Stack is Empty" << endl;
+            else
+            {
                 cout << "The Stack -> ";
                 s.display();
             }

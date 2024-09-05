@@ -30,7 +30,8 @@ public:
 	void postorder(Node *);
 };
 
-int Tree::empty(){
+int Tree::empty()
+{
 	if (root == NULL)
 		return 1;
 	return 0;
@@ -58,7 +59,7 @@ int Tree::getBalance(Node *r)
 	return height(r->left) - height(r->right);
 }
 
-Node* Tree::leftRotate(Node *x)
+Node *Tree::leftRotate(Node *x)
 {
 	Node *y = x->right;
 	Node *temp = y->left;
@@ -69,7 +70,7 @@ Node* Tree::leftRotate(Node *x)
 	return y;
 }
 
-Node* Tree::rightRotate(Node *x)
+Node *Tree::rightRotate(Node *x)
 {
 	Node *y = x->left;
 	Node *temp = y->right;
@@ -80,39 +81,39 @@ Node* Tree::rightRotate(Node *x)
 	return y;
 }
 
-
-void Tree::insert(int key){
+void Tree::insert(int key)
+{
 	Node *curr = createNode(key);
-    if (empty())
-    {
+	if (empty())
+	{
 		root = curr;
 		return;
-    }
-    Node *temp = root, *parent;
-    while (temp != NULL)
-    {
-        parent = temp;
-        key < temp->data ? temp = temp->left : temp = temp->right;
-    }
-    key > parent->data ? parent->right = curr : parent->left = curr;
+	}
+	Node *temp = root, *parent;
+	while (temp != NULL)
+	{
+		parent = temp;
+		key < temp->data ? temp = temp->left : temp = temp->right;
+	}
+	key > parent->data ? parent->right = curr : parent->left = curr;
 
 	int balance = getBalance(root);
 
 	// Make the rotations
-	if (balance > 1 && key < root->left->data) 
+	if (balance > 1 && key < root->left->data)
 	{
 		root = rightRotate(root);
 	}
-	if(balance < -1 && key > root->right->data) 
+	if (balance < -1 && key > root->right->data)
 	{
 		root = leftRotate(root);
 	}
-	if (balance > 1 && key > root->left->data) 
+	if (balance > 1 && key > root->left->data)
 	{
 		root->left = leftRotate(root->left);
 		root = rightRotate(root);
 	}
-	if (balance < -1 && key < root->right->data) 
+	if (balance < -1 && key < root->right->data)
 	{
 		root->right = rightRotate(root->right);
 		root = leftRotate(root);
@@ -122,30 +123,31 @@ void Tree::insert(int key){
 
 void Tree::search(int key)
 {
-    if (empty())
-    {
-        cout << "Tree is Empty" << endl;
-        return;
-    }
-    Node *temp = root;
-    while (temp != NULL)
-    {
-        if (temp->data == key)
-        {
-            cout << "Item Found" << endl;
-            return;
-        }
-        else if (key < temp->data)
-            temp = temp->left;
-        else
-            temp = temp->right;
-    }
-    cout << "Item not Found" << endl;
+	if (empty())
+	{
+		cout << "Tree is Empty" << endl;
+		return;
+	}
+	Node *temp = root;
+	while (temp != NULL)
+	{
+		if (temp->data == key)
+		{
+			cout << "Item Found" << endl;
+			return;
+		}
+		else if (key < temp->data)
+			temp = temp->left;
+		else
+			temp = temp->right;
+	}
+	cout << "Item not Found" << endl;
 }
 
 void Tree::inorder(Node *r)
 {
-	if(empty()){
+	if (empty())
+	{
 		cout << "Tree is Empty" << endl;
 		return;
 	}
@@ -158,7 +160,8 @@ void Tree::inorder(Node *r)
 
 void Tree::preorder(Node *r)
 {
-	if(empty()){
+	if (empty())
+	{
 		cout << "Tree is Empty" << endl;
 		return;
 	}
@@ -171,7 +174,8 @@ void Tree::preorder(Node *r)
 
 void Tree::postorder(Node *r)
 {
-	if(empty()){
+	if (empty())
+	{
 		cout << "Tree is Empty" << endl;
 		return;
 	}
@@ -181,7 +185,6 @@ void Tree::postorder(Node *r)
 	postorder(r->right);
 	cout << r->data << " ";
 }
-
 
 int main()
 {
@@ -226,7 +229,8 @@ int main()
 			break;
 
 		case 6:
-			if(t.empty()){
+			if (t.empty())
+			{
 				cout << "Height = 0" << endl;
 			}
 			else

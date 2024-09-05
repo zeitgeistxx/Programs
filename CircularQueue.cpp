@@ -21,7 +21,7 @@ public:
 
 bool CQueue::isFull()
 {
-    if ((rear+1) % size == front)
+    if ((rear + 1) % size == front)
     {
         return true;
     }
@@ -35,7 +35,6 @@ bool CQueue::isEmpty()
     }
     return false;
 }
-
 
 void CQueue::insert(int x)
 {
@@ -79,7 +78,7 @@ int main()
 
     while (true)
     {
-        cout << "\n\n\n";   
+        cout << "\n\n\n";
         cout << "1.FULL" << endl;
         cout << "2.EMPTY" << endl;
         cout << "3.INSERT" << endl;

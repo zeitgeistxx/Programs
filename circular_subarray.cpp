@@ -1,15 +1,18 @@
-//Maximum circular subarray sum
-#include<iostream>
-#include<climits>
-#include<algorithm>
+// Maximum circular subarray sum
+#include <iostream>
+#include <climits>
+#include <algorithm>
 using namespace std;
 
-int kadane(int arr[], int n){
+int kadane(int arr[], int n)
+{
     int currsum = 0;
     int maxSum = INT_MIN;
-    for(int i=0; i<n; i++){
+    for (int i = 0; i < n; i++)
+    {
         currsum += arr[i];
-        if(currsum < 0){
+        if (currsum < 0)
+        {
             currsum = 0;
         }
         maxSum = max(maxSum, currsum);
@@ -17,12 +20,14 @@ int kadane(int arr[], int n){
     return maxSum;
 }
 
-int main(){
+int main()
+{
     int n;
     cin >> n;
     int a[n];
 
-    for(int i=0; i<n; i++){
+    for (int i = 0; i < n; i++)
+    {
         cin >> a[i];
     }
     int wrapSum;
@@ -30,7 +35,8 @@ int main(){
 
     nonwrapSum = kadane(a, n);
     int totalSum = 0;
-    for(int i=0; i<n; i++){
+    for (int i = 0; i < n; i++)
+    {
         totalSum += a[i];
         a[i] = -a[i];
     }

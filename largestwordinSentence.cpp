@@ -1,24 +1,28 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main(){
-    
-    //Largest word in a sentence
+int main()
+{
+
+    // Largest word in a sentence
     int n;
     cin >> n;
     cin.ignore();
 
     char arr[n + 1];
     cin.getline(arr, n);
-    cin.ignore();//to clear the buffer
+    cin.ignore(); // to clear the buffer
 
     int i = 0;
     int curLen = 0, maxLen = 0;
     int st = 0, maxst = 0;
-    while(1){
+    while (1)
+    {
 
-        if(arr[i]==' ' || arr[i]=='\0'){
-            if(curLen>maxLen){
+        if (arr[i] == ' ' || arr[i] == '\0')
+        {
+            if (curLen > maxLen)
+            {
                 maxLen = curLen;
                 maxst = st;
             }
@@ -27,18 +31,19 @@ int main(){
             st = i + 1;
         }
 
-        else{
+        else
+        {
             curLen++;
         }
 
-        if(arr[i]=='\0') break;
+        if (arr[i] == '\0')
+            break;
 
         i++;
     }
     cout << maxLen << endl;
-    for(int i =0; i<maxLen; i++){
+    for (int i = 0; i < maxLen; i++)
+    {
         cout << arr[i + maxst];
     }
 }
-
-

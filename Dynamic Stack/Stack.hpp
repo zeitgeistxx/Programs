@@ -1,9 +1,8 @@
 #include <iostream>
-#include<climits>
+#include <climits>
 using namespace std;
 
-
-template<typename T>
+template <typename T>
 class Stack
 {
     T *data;
@@ -17,23 +16,27 @@ public:
         data = new T[capacity];
         top = -1;
     }
-    Stack(int size){
+    Stack(int size)
+    {
         capacity = size;
         data = new T[capacity];
         top = -1;
     }
 
-
-    bool isEmpty(){
+    bool isEmpty()
+    {
         return top == -1;
     }
 
-    bool isFull(){
+    bool isFull()
+    {
         return capacity == top + 1;
     }
 
-    void push(T element){
-        if(isFull()){
+    void push(T element)
+    {
+        if (isFull())
+        {
             cout << "Stack is Full" << endl;
             return;
         }
@@ -41,25 +44,32 @@ public:
         data[top] = element;
     }
 
-    void pop(){
-        if(isEmpty()){
+    void pop()
+    {
+        if (isEmpty())
+        {
             cout << "Stack is empty" << endl;
             return;
         }
         top--;
     }
 
-    int peek(){
-        if(isEmpty()){
+    int peek()
+    {
+        if (isEmpty())
+        {
             cout << "Stack is empty" << endl;
             return INT_MIN;
         }
         return data[top];
     }
 
-    void display(){
-        if(!isEmpty()){
-            for (int i = 0; i <= top; i++){
+    void display()
+    {
+        if (!isEmpty())
+        {
+            for (int i = 0; i <= top; i++)
+            {
                 cout << data[i] << " ";
             }
         }

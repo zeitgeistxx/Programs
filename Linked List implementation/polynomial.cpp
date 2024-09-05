@@ -49,7 +49,7 @@ void Poly::createPoly(int c, int e)
 		temp->coef = c + temp->coef;
 		key = 1;
 	}
-	
+
 	while (temp->next != NULL)
 	{
 		if (e == temp->exp)
