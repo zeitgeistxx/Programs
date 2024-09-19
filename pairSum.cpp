@@ -1,4 +1,4 @@
-// Check if there exists two elements in an array such that their is equal to given k
+// Check if there exists two elements in an array such that their sum is equal to given k
 #include <iostream>
 #include <climits>
 using namespace std;
