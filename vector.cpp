@@ -15,7 +15,6 @@ int main()
     }
 
     vector<int> w;
-    // int min = *min_element(v.begin(),v.end());
     for (int i = 0; i < n; i++)
     {
         w.push_back(v[i]);

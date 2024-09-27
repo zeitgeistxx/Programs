@@ -1,4 +1,4 @@
-// You are givrn an array arr[] of N integers including 0. The task is to find the smallest positive integer number missing from the array
+// You are given an array arr[] of N integers including 0. The task is to find the smallest positive integer number missing from the array
 // Constraints
 // 1 <= N <= 10^6
 // 10^-6 <= Ai <= 10^6
