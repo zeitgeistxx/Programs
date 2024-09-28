@@ -14,17 +14,17 @@ public:
     {
     }
 
-    size_t hash_1(const string &str)
+    int hash_1(const string &str)
     {
         return StringHash::FirstHashFunction(str) % size;
     }
 
-    size_t hash_2(const string &str)
+    int hash_2(const string &str)
     {
         return StringHash::SecondHashFunction(str) % size;
     }
 
-    size_t hash_3(const string &str)
+    int hash_3(const string &str)
     {
         return StringHash::ThirdHashFunction(str) % size;
     }
