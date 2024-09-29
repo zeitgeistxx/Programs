@@ -16,17 +16,17 @@ public:
 
     int hash_1(const string &str)
     {
-        return StringHash::FirstHashFunction(str) % size;
+        return StringHash::HashFunction(str, 17) % size;
     }
 
     int hash_2(const string &str)
     {
-        return StringHash::SecondHashFunction(str) % size;
+        return StringHash::HashFunction(str, 31) % size;
     }
 
     int hash_3(const string &str)
     {
-        return StringHash::ThirdHashFunction(str) % size;
+        return StringHash::HashFunction(str, 53) % size;
     }
 
     void add(const string &key)
