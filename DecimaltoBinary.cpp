@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <bitset>
 using namespace std;
 
 string DectoBinary(int n)
@@ -20,7 +21,12 @@ string DectoBinary(int n)
 
 int main()
 {
-    int n;
-    cin >> n;
-    cout << DectoBinary(n) << endl;
+    // int n;
+    // cin >> n;
+    // cout << DectoBinary(n) << endl;
+
+    char item = 'N';
+    auto byteValue = static_cast<uint8_t>(item);
+    bitset<8> binary(byteValue);
+    cout << binary << endl;
 }
